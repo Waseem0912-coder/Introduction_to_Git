@@ -92,18 +92,47 @@ Now, return to the GitHub repository online:
 
 1. Click on "Pull Requests".
 2. Select "New Pull Request".
-3. For the base branch, choose "main" **from your Fork**. For the compare branch, pick your branch (`[your_name]-choice`) **from your Fork**.
+3. For the base repository, choose the **original repository** (not your fork) and its `main` branch. For the head repository, pick your fork and your branch (`[your_name]-choice`).
 4. Review your changes and click "Create Pull Request".
 5. Add a title and description for your PR and submit.
 
-If you encounter conflicts during the PR (which is expected given the Greek god choice), proceed to step 6.
-
----
-### Wrapping Up the Git Tutorial: Resolving Conflicts and Advanced Commands
+Given the pre-existing change in the original repository's `dev` branch, you should encounter conflicts during the PR. Proceed to the next steps to resolve them.
 
 ---
 
-#### 6. Resolve Merge Conflicts:
+#### 6. Using `git diff`:
+
+The `git diff` command allows you to view differences between your working directory and the index (staged changes). This is helpful to review changes before committing.
+
+After you've made changes but before committing:
+
+```bash
+$ git diff
+```
+
+This will show you the changes in your working directory compared to the last commit.
+
+If you've already staged the changes (i.e., after using `git add`):
+
+```bash
+$ git diff --staged
+```
+
+---
+
+#### 7. Using `git log --merge`:
+
+During a merge conflict:
+
+```bash
+$ git log --merge
+```
+
+This command will show you the history of the commits that are causing the conflict, helping you make a more informed decision on how to resolve it.
+
+---
+
+#### 8. Resolve Merge Conflicts:
 
 Open the text file on GitHub by selecting the option to `Resolve Conflicts`, and on the web editor you'll see conflict markers:
 
@@ -125,27 +154,7 @@ After resolving all conflicts, create the PR.
 
 ---
 
-#### 7. Using `git diff`:
-
-The `git diff` command allows you to view differences between your working directory and the index (staged changes). This is helpful to review changes before committing.
-
-After you've made changes but before committing:
-
-```bash
-$ git diff
-```
-
-This will show you the changes in your working directory compared to the last commit.
-
-If you've already staged the changes (i.e., after using `git add`):
-
-```bash
-$ git diff --staged
-```
-
----
-
-#### 8. Resolving Merge Conflicts with `git mergetool`:
+#### 9. Resolving Merge Conflicts with `git mergetool`:
 
 When you encounter a merge conflict:
 
@@ -157,24 +166,9 @@ This will open a GUI that displays the conflict. Follow the tool's instructions 
 
 ---
 
-#### 9. Using `git log --merge`:
-
-During a merge conflict:
-
-```bash
-$ git log --merge
-```
-
-This command will show you the history of the commits that are causing the conflict, helping you make a more informed decision on how to resolve it.
-
----
-
 #### 10. Merge the PR:
 
 Finally, merge the PR.
 
 Congratulations! You've now tackled changes, navigated conflicts, and initiated a PR. Handling merge conflicts can seem daunting at first, but with practice, it becomes intuitive. This exercise imparts the collaborative flow of team projects using Git and GitHub, enhancing your version control skills.
-
----
-
 
